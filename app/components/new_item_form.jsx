@@ -1,4 +1,5 @@
 var React = require('react');
+var TodoStore = require('../todo_store');
 
 var Item = React.createClass({
   PropTypes: {
@@ -8,7 +9,8 @@ var Item = React.createClass({
   _handleSubmit: function (e) {
     e.preventDefault();
     var input = this.refs['itemInput'].getDOMNode();
-    console.log('should add item: ', input.value);
+    TodoStore.addItem(input.value);
+
     input.value = null;
   },
 

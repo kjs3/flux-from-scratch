@@ -29,3 +29,12 @@ Step 1:
 
 Starting with a _very_ simple single page todo app built with React.
 The app does almost nothing at this point except `console.log` its intentions.
+
+
+Step 2:
+
+Created a `todo_store.js` module to create, store, and retrieve todo items.
+
+This store creates and returns a singleton so anywhere it's `require`d it will be the same instance.
+
+You can add listener functions to the store that will be called when events fire.
