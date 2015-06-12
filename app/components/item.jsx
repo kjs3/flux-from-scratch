@@ -1,23 +1,31 @@
 var React = require('react');
+var TodoStore = require('../todo_store');
 
 var Item = React.createClass({
   PropTypes: {
-    description: React.PropTypes.string.isRequired,
-    done: React.PropTypes.bool.isRequired
+    item: React.PropTypes.object.isRequired
   },
 
   _toggleDone: function (e) {
     e.preventDefault();
     
-    var done = !this.props.done;
-    console.log('should change "done" status to: ', done);
+    TodoStore.toggleDone(this.props.item.id);
+  },
+
+  _removeItem: function (e) {
+    e.preventDefault();
+    
+    TodoStore.removeItem(this.props.item.id);
   },
 
   render: function () {
     return (
       <div>
         <a href='' onClick={this._toggleDone}>
-          {this.props.description}
+          {this.props.item.description}
+        </a>
+        <a href='' style={{'margin-left': '30px'}} onClick={this._removeItem}>
+          remove
         </a>
       </div>
     );

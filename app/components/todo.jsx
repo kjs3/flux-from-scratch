@@ -31,7 +31,7 @@ var Todo = React.createClass({
           <NewItemForm />
           {this.state.items.map(function(item) {
             if ( !item.done ) {
-              return <Item key={item.id} description={item.description} done={item.done} />;
+              return <Item key={item.id} item={item} />;
             } else {
               return false;
             }
@@ -39,7 +39,7 @@ var Todo = React.createClass({
         <h3>Done</h3>
           {this.state.items.map(function(item) {
             if ( item.done ) {
-              return <Item key={item.id} description={item.description} done={item.done} />;
+              return <Item key={item.id} item={item} />;
             } else {
               return false;
             }

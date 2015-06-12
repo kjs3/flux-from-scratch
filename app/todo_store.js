@@ -19,14 +19,21 @@ var TodoStorePrototype = {
     return this.emit('change');
   },
 
+  toggleDone: function (id) {
+    var index = itemIndexFor(id);
+
+    if ( index !== -1) {
+      this.items[index].done = !this.items[index].done;
+      return this.emit('change');
+    }
+  },
+
   removeItem: function (id) {
     var index = itemIndexFor(id);
 
     if ( index !== -1) {
       this.items.splice(index, 1);
-      return true;
-    } else {
-      return false;
+      return this.emit('change');
     }
   },
 
@@ -47,7 +54,7 @@ var AppTodoStore = new TodoStore();
 module.exports = AppTodoStore;
 
 // utility function to get the index of a TodoItem
-function itemsIndexFor(id) {
+function itemIndexFor(id) {
   var len = AppTodoStore.items.length;
 
   for(var i = 0; i < len; i++) {
