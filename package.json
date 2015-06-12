@@ -1,6 +1,6 @@
 {
   "name": "flux-from-scratch",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "author": "Kenny Smith <kjs3@kjs3.com>",
   "description": "Learning about Flux architecture and how to implement it.",
   "engines" : { "iojs" : "2.2.1" },
